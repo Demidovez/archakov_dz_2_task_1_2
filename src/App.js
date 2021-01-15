@@ -1,15 +1,31 @@
+import React from "react";
 import "./App.scss";
-import dishes from "./data.json";
+import dishesData from "./data.json";
 import DishCard from "./components/DishCard";
 import Search from "./components/Search";
 
 function App() {
+  const [dishes, setDishes] = React.useState(dishesData);
+
+  const onSearch = (value) => {
+    if (value) {
+      setDishes(
+        dishesData.filter(
+          (dish) => dish.title.toLowerCase().includes(value.toLowerCase())
+          // еще нужна проверка по описанию
+        )
+      );
+    } else {
+      setDishes(dishesData);
+    }
+  };
+
   return (
     <div className="App">
       <div className="container-fluid app-wrapper">
         <div className="row">
           <div className="col-12 search-wrapper">
-            <Search />
+            <Search onSearch={onSearch} />
           </div>
         </div>
         <div className="row">
@@ -21,6 +37,9 @@ function App() {
               <DishCard dish={dish} />
             </div>
           ))}
+          {!dishes.length && (
+            <p className="h3 no-dishes-label">No dishes found</p>
+          )}
         </div>
       </div>
     </div>

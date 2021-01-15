@@ -9,18 +9,36 @@ body {
     margin: 20px 0;
 
     .search {
+      position: relative;
+
       input {
         height: 45px;
         border-radius: 10px;
         border: none;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        padding-right: 40px;
 
         &:focus {
           box-shadow: 0 0 0 0.25rem #19875440;
           border-color: #5f9179;
         }
       }
+
+      .reset-search {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        bottom: 0;
+        cursor: pointer;
+        padding: 10px 15px;
+      }
     }
+  }
+
+  .no-dishes-label {
+    margin-top: 45px;
+    text-align: center;
+    color: #c5c5c5;
   }
 
   .card-wrapper {
