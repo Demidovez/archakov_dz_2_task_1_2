@@ -3,6 +3,7 @@ import React from "react";
 function Search(props) {
   const [searchValue, setSearchValue] = React.useState();
 
+  // eslint-disable-next-line
   React.useEffect(() => props.onSearch(searchValue), [searchValue]);
 
   const onChange = ({ target }) => {

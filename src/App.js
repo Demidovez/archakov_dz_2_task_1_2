@@ -10,9 +10,10 @@ function App() {
   const onSearch = (value) => {
     if (value) {
       setDishes(
-        dishesData.filter(
-          (dish) => dish.title.toLowerCase().includes(value.toLowerCase())
-          // еще нужна проверка по описанию
+        dishesData.filter((dish) =>
+          (dish.title + " " + dish.description)
+            .toLowerCase()
+            .includes(value.toLowerCase())
         )
       );
     } else {

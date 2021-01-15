@@ -15,7 +15,7 @@ function DishCard(props) {
             ? description.substring(0, 130) + "..."
             : description}
         </p>
-        <a href="#" className="btn btn-primary">
+        <a href="/" className="btn btn-primary">
           More
         </a>
       </div>
